@@ -1,1 +1,11 @@
-<p>user-table works!</p>
+<input #searchInput type="text" (input)="onSearch(searchInput.value)" placeholder="Search by title" />
+
+@if (loading) {
+<div>Loading posts...</div>
+} @else {
+<ul>
+  @for (post of filteredPosts; track post.title) {
+  <li>{{ post.title }}</li>
+  }
+</ul>
+}
